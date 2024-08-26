@@ -9,6 +9,11 @@ This repository contains data and maps visualizing the regional prevalence of ea
     -   **Data**: [`data_AEDC.csv'](https://mooooolee.github.io/AEDC_Mapping_2018/Input/data_AEDC.csv)
     -   **Maps provided by ABS under ASGS2016**: `ASGS16`
 -   **Output Folder**: Contains a series of maps showing the distribution of early childhood vulnerability by various indicators, as well as the proportion of indigenious people
+    - Physical Health & Wellbeing: [`Map_Health.png`](https://mooooolee.github.io/AEDC_Mapping_2018/Output/Map_Health.png)
+    - Social Competence: [`Map_Social.png`](https://mooooolee.github.io/AEDC_Mapping_2018/Output/Map_Social.png)
+    - Emotional Maturity: [`Map_Emotional.png`](https://mooooolee.github.io/AEDC_Mapping_2018/Output/Map_Emotional.png)
+    - Language & Cognitive Skills: [`Map_Language.png`](https://mooooolee.github.io/AEDC_Mapping_2018/Output/Map_Language.png)
+    - Communication Skills & General Knowledge: [`Map_Communication.png`](https://mooooolee.github.io/AEDC_Mapping_2018/Output/Map_Communication.png)
 -   `rcode.R`: The R code used to generate the maps.
 
 # Purpose
