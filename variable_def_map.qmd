@@ -46,6 +46,7 @@ dat_map <- SA3_ASGS16 %>%
   group_by(variable) %>%
   mutate(vulnerable_rate_model_cat = factor(ntile(vulnerable_rate_model, 10)))
 
+
 # 5 Maps ------------------------------------------------------------------
 
 Variable_List <- tibble(Vaiable = c("Health", "Social",
@@ -57,17 +58,14 @@ Variable_List <- tibble(Vaiable = c("Health", "Social",
                                      "Language & Cognitive Skills",
                                      "Communication Skills & General Knowledge"))
 
-
-
-
 ```
 
 # Introduction
 
-This document provides an overview of the maps and variable definitions used in analyzing early childhood vulnerability in Australia. The data utilized in these maps are derived from model-based estimations applied to the Australia Early Childhood Development Census (AEDC) data[@AEDC_Data]. The model borrow the strength from socio-economic indexes for areas (SEIFA) and the Accessibility/Remoteness Index of Australia (ARIA) to estimate the proportion of children in each Statistical Area Level 3 (SA3) who are developmentally vulnerable in each of five domains of the AEDC [@baffour2024utility].
+This document provides an overview of the maps and variable definitions used in analyzing early childhood vulnerability in Australia. The data utilized in these maps are derived from model-based estimations applied to the Australia Early Childhood Development Census (AEDC) data [@AEDC_Data]. The model borrow the strength from socio-economic indexes for areas (SEIFA) and the Accessibility/Remoteness Index of Australia (ARIA) [@hugo1999accessibility] to estimate the proportion of children in each Statistical Area Level 3 (SA3) who are developmentally vulnerable in each of five domains of the AEDC [@baffour2024utility].
 
-We also show the data of indigenous population in each SA3 region which provided by the Australian Bureau of Statistics (ABS) via TableBuilder[@ABS_TableBuilder].
-We use the ASGS16 SA3 shape file to map the proportion of children developmentally vulnerable in each domain across New South Wales. The SA3 shape file is available from the Australian Bureau of Statistics (ABS) website[@ASGS2016].
+We also show the data of indigenous population in each SA3 region which provided by the Australian Bureau of Statistics (ABS) via TableBuilder [@ABS_TableBuilder].
+We use the ASGS16 SA3 shape file to map the proportion of children developmentally vulnerable in each domain across New South Wales. The SA3 shape file is available from the Australian Bureau of Statistics (ABS) website [@ASGS2016].
 
 # Variable definitions
 
