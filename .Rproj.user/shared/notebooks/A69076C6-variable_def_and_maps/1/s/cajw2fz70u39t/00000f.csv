@@ -1,0 +1,121 @@
+"0","set.seed(1234)
+WD <- getwd()
+
+
+# 2 Install and Lib Packages ----------------------------------------------
+
+library(tidyverse)
+library(spdep)
+
+library(ggpubr)
+
+
+# 3 Read Maps and Data ----------------------------------------------------
+
+dat <- read_csv(""Input/data_AEDC.csv"") 
+"
+"1","[1mRows: [22m[34m9990[39m [1mColumns: [22m[34m18[39m
+"
+"1","[36m──[39m [1mColumn specification[22m [36m───────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m  (7): variable, model, SA3_NAME16, SA4_NAME16, GCC_NAME16, state, ARIA_cat
+[32mdbl[39m (11): IRSD, IRSD_decile, ARIA, vulnerable_count, sample_size, vulnerable_rate, ...
+"
+"1","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.
+"
+"0","SA3_ASGS16 <- st_read(""Input/ASGS16/SA3_2016_AUST.shp"")"
+"1","Reading layer `"
+"1","SA3_2016_AUST"
+"1","' from data source "
+"1","
+"
+"1","  "
+"1","`"
+"1","C:\Users\u6275337\Documents\GitHub\AEDC_Mapping_2018\Input\ASGS16\SA3_2016_AUST.shp"
+"1","' "
+"1","
+"
+"1","  "
+"1","using driver `"
+"1","ESRI Shapefile"
+"1","'"
+"1","
+"
+"1","Simple feature collection with 358 features and 9 fields"
+"1"," (with 18 geometries empty)"
+"1","
+"
+"1","Geometry type: MULTIPOLYGON
+"
+"1","Dimension:     XY
+"
+"1","Bounding box:  "
+"1","xmin: 96.81694 ymin: -43.74051 xmax: 167.998 ymax: -9.142176"
+"1","
+"
+"1","Geodetic CRS:  GDA94
+"
+"0","# 4 Data Cleaning ---------------------------------------------------------"
+"0",""
+"0","dat_map <- SA3_ASGS16 %>%"
+"0","  full_join(dat) %>%"
+"0","  filter(state == ""NSW"","
+"0","         model == ""M4"") %>%"
+"0","  group_by(variable) %>%"
+"0","  mutate(vulnerable_rate_model_cat = factor(ntile(vulnerable_rate_model, 10)))"
+"1","[38;5;239mJoining with `by = join_by(SA3_NAME16, SA4_NAME16, GCC_NAME16)`[39m
+"
+"0","# 5 Maps ------------------------------------------------------------------"
+"0",""
+"0","Variable_List <- tibble(Vaiable = c(""Health"", ""Social"","
+"0","                                    ""Emotional"", ""Language"", "
+"0","                                    ""Communication""),"
+"0","                        FullName = c(""Physical Health & Wellbeing"","
+"0","                                     ""Social Competence"","
+"0","                                     ""Emotional Maturity"","
+"0","                                     ""Language & Cognitive Skills"","
+"0","                                     ""Communication Skills & General Knowledge""))"
+"0",""
+"0","FUN_Mapping <- function(Variable, FullName){"
+"0","  "
+"0","  p1 <- dat_map %>%"
+"0","    filter(variable == Variable) %>%"
+"0","    ggplot() +"
+"0","    geom_sf(aes(fill = vulnerable_rate_model_cat),"
+"0","            color = ""black"") +"
+"0","    scale_fill_brewer(palette = ""RdYlGn"","
+"0","                      direction = -1,"
+"0","                      na.value = ""grey"") + "
+"0","    labs(title = ""New South Wales"","
+"0","         fill = ""Vulnerability Levels (Deciles)"") +"
+"0","    theme_void() +"
+"0","    theme(plot.title = element_text(hjust = 0.5,"
+"0","                                    size = 12))"
+"0","  "
+"0","  p2 <- dat_map %>%"
+"0","    filter(variable == Variable,"
+"0","           GCC_NAME16 == ""Greater Sydney"") %>%"
+"0","    ggplot() +"
+"0","    geom_sf(aes(fill = vulnerable_rate_model_cat),"
+"0","            color = ""black"") +"
+"0","    scale_fill_brewer(palette = ""RdYlGn"","
+"0","                      direction = -1,"
+"0","                      na.value = ""grey"") + "
+"0","    labs(title = ""Greater Sydney"","
+"0","         fill = ""Vulnerability Levels (Deciles)"") +"
+"0","    theme_void() +"
+"0","    theme(plot.title = element_text(hjust = 0.5,"
+"0","                                    size = 12))"
+"0","  "
+"0","  map <- ggarrange(plotlist = list(p1, p2),"
+"0","                   ncol = 2,"
+"0","                   common.legend = TRUE, legend = ""bottom"") %>%"
+"0","    annotate_figure(top = text_grob(str_c(""Child Developmental Vulnerability by SA3 in 2018"","
+"0","                                          ""\n"", FullName), "
+"0","                                    face = ""bold"","
+"0","                                    hjust = 0.5,"
+"0","                                    size = 14))"
+"0","  return(map)"
+"0","}"
