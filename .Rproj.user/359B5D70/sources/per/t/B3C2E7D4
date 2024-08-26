@@ -1,0 +1,26 @@
+{
+    "id": "B3C2E7D4",
+    "path": "~/GitHub/AEDC_Mapping_2018/variable_def_map.qmd",
+    "project_path": "variable_def_map.qmd",
+    "type": "quarto_markdown",
+    "hash": "1292345405",
+    "contents": "",
+    "dirty": false,
+    "created": 1724674215463.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "214,3",
+        "scrollLine": "0"
+    },
+    "folds": "0|3|12|0|\n14|6|62|0|\n19|20|24|0|\n25|29|32|0|\n33|23|38|0|\n39|18|47|0|\n48|9|61|0|\n64|14|70|0|\n71|22|97|0|\n98|16|210|0|\n102|31|158|0|\n106|6|157|0|\n109|44|149|0|\n159|46|210|0|\n163|6|209|0|\n211|24|214|3|\n",
+    "lastKnownWriteTime": 1724674219,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1724674219585,
+    "read_only": false,
+    "read_only_alternatives": []
+}
