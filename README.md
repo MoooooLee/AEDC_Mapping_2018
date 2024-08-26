@@ -31,7 +31,7 @@ This project is open-source and available under the GPL-3.0 License.
 
 # Contact
 
-For any inquiries or feedback, please contact Mu Li at [mu.li\@anu.edu.au](mu.li@anu.edu.au).
+For any inquiries or feedback, please contact Mu Li at [mu.li@anu.edu.au](mu.li@anu.edu.au).
 
 # References
 
