@@ -8,12 +8,12 @@ This repository contains data and maps visualizing the regional prevalence of ea
   - **Data**: `data_AEDC.csv`
   - **Maps provided by ABS under ASGS2016**: `ASGS16`
 - **Output Folder**: Contains a series of maps showing the distribution of early childhood vulnerability by various indicators, as well as the proportion of indigenious people:
-  - **Communication Vulnerability**: `Map_Communication.png`
-  - **Emotional Vulnerability**: `Map_Emotional.png`
-  - **Health Vulnerability**: `Map_Health.png`
-  - **Language Vulnerability**: `Map_Language.png`
-  - **Social Vulnerability**: `Map_Social.png`
-  - **Indigenous Population Vulnerability**: `Map_Indigenous.png`
+  - **Health Vulnerability**: [`Map_Health.png`](./maps/Map_Health.png)
+  - **Social Vulnerability**: [`Map_Social.png`](./maps/Map_Social.png)
+  - **Emotional Vulnerability**: [`Map_Emotional.png`](./maps/Map_Emotional.png)
+  - **Language Vulnerability**: [`Map_Language.png`](./maps/Map_Language.png)
+  - **Communication Vulnerability**: [`Map_Communication.png`](./maps/Map_Social.png)
+  - **Indigenous Population Vulnerability**: [`Map_Indigenous.png`](./maps/Map_Indigenous.png)
 
 ## Purpose
 These resources provide a visual representation of early childhood vulnerability across different regions in NSW in Australia. The maps highlight areas where children are most vulnerable, helping researchers and policymakers focus their efforts on regions that need the most support.
