@@ -1,11 +1,11 @@
 # Overview
-This repository contains data and maps visualizing the regional prevalence of early childhood vulnerability across Australia. The maps are generated based on models developed to understand how socioeconomic and remoteness indicators affect childhood vulnerability.
+This repository contains data and maps visualizing the regional prevalence of early childhood vulnerability across Australia. The maps are generated based on models developed to understand how socioeconomic and remoteness indicators affect childhood vulnerability [@baffour2024utility].
 
 # Contents
-- *Input Folder*: Contains the data files used for generating the maps.
+- **Input Folder**: Contains the data files used for generating the maps.
   - **Data**: `data_AEDC.csv`
   - **Maps provided by ABS under ASGS2016**: `ASGS16`
-- *Output Folder*: Contains a series of maps showing the distribution of early childhood vulnerability by various indicators, as well as the proportion of indigenious people:
+- **Output Folder**: Contains a series of maps showing the distribution of early childhood vulnerability by various indicators, as well as the proportion of indigenious people:
   - **Health Vulnerability**: [`Map_Health.png`](./Output/Map_Health.png)
   - **Social Vulnerability**: [`Map_Social.png`](./Output/Map_Social.png)
   - **Emotional Vulnerability**: [`Map_Emotional.png`](./Output/Map_Emotional.png)
@@ -27,3 +27,6 @@ This project is open-source and available under the GPL-3.0 License.
 # Contact
 
 For any inquiries or feedback, please contact Mu Li at [mu.li@anu.edu.au](mu.li@anu.edu.au).
+
+::: {#refs}
+:::

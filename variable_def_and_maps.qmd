@@ -9,12 +9,9 @@ format:
   html:
     code-fold: true
     toc: true             
-  pdf:
-    toc: true            
-    number-sections: false 
 theme: flaty
-
 ---
+
 ```{r}
 #| label: 0-library-packages
 #| include: FALSE
@@ -67,42 +64,44 @@ Variable_List <- tibble(Vaiable = c("Health", "Social",
 
 # Introduction
 
-This document provides an overview of the maps and variable definitions used in analyzing early childhood vulnerability in Australia. The data utilized in these maps are derived from model-based estimations applied to the Australia Early Childhood Development Census (AEDC) data[@baffour2024utility]. The model leverages socio-economic indexes for areas (SEIFA) and the Accessibility/Remoteness Index of Australia (ARIA) to estimate the proportion of children in each Statistical Area Level 3 (SA3) who are developmentally vulnerable in each of five domains of the AEDC.
+This document provides an overview of the maps and variable definitions used in analyzing early childhood vulnerability in Australia. The data utilized in these maps are derived from model-based estimations applied to the Australia Early Childhood Development Census (AEDC) data[@AEDC_Data]. The model borrow the strength from socio-economic indexes for areas (SEIFA) and the Accessibility/Remoteness Index of Australia (ARIA) to estimate the proportion of children in each Statistical Area Level 3 (SA3) who are developmentally vulnerable in each of five domains of the AEDC [@baffour2024utility].
 
+We also show the data of indigenous population in each SA3 region which provided by the Australian Bureau of Statistics (ABS) via TableBuilder[@ABS_TableBuilder].
 We use the ASGS16 SA3 shape file to map the proportion of children developmentally vulnerable in each domain across New South Wales. The SA3 shape file is available from the Australian Bureau of Statistics (ABS) website[@ASGS2016].
 
 # Variable definitions
 
 We use the following variables in our data file `Input/data_AEDC.csv`.
 
-- `variable`: name of domains of indicators of early childhood vulnerability, which are:
-  - `Health`: Physical Health and Wellbeing
-  - `Social`: Social Competence
-  - `Emotional`: Emotional Maturity
-  - `Language`: Language and Cognitive Skills
-  - `Communication`: Communication Skills and General Knowledge
-- `model`: name of the model used to estimate the proportion of children developmentally vulnerable in each domain. Here we use `M4` model as this was found to have the best performance in the study[@baffour2024utility].
-- `SA3_NAME16`: Official name of SA3 region
-- `SA4_NAME16`: Official name of SA4 region
-- `GCC_NAME16`: Official name of Greater Capital City region
-- `state`: State or Territory in which the SA3 region is located
-- `IRSD`: Index of Relative Socio-economic Disadvantage (IRSD) score
-- `ARIA`: Accessibility/Remoteness Index of Australia (ARIA) score
-- `vulnerble_count`: Number of children developmentally vulnerable in the SA3
-- `sample_size`: Number of children in AEDC in the SA3
-- `vulnerable_rate`: Proportion of children developmentally vulnerable in the SA3
-- `vulnerable_rate_model`: Proportion of children developmentally vulnerable in the SA3 estimated by the model
-- `indig_yes`: number of people who identify as Indigenous in the SA3
-- `indig_no`: number of people who do not identify as Indigenous in the SA3
-- `indig_not_stated`: number of people who did not state their Indigenous status in the SA3
-- `indig_rate`: Proportion of people who identify as Indigenous in the SA3
-- `usual_resident_population`: Number of usual residents in the SA3
+-   `variable`: name of domains of indicators of early childhood vulnerability, which are:
+    -   `Health`: Physical Health and Wellbeing
+    -   `Social`: Social Competence
+    -   `Emotional`: Emotional Maturity
+    -   `Language`: Language and Cognitive Skills
+    -   `Communication`: Communication Skills and General Knowledge
+-   `model`: name of the model used to estimate the proportion of children developmentally vulnerable in each domain. Here we use `M4` model as this was found to have the best performance in the study[@baffour2024utility].
+-   `SA3_NAME16`: Official name of SA3 region
+-   `SA4_NAME16`: Official name of SA4 region
+-   `GCC_NAME16`: Official name of Greater Capital City region
+-   `state`: State or Territory in which the SA3 region is located
+-   `IRSD`: Index of Relative Socio-economic Disadvantage (IRSD) score
+-   `ARIA`: Accessibility/Remoteness Index of Australia (ARIA) score
+-   `vulnerble_count`: Number of children developmentally vulnerable in the SA3
+-   `sample_size`: Number of children in AEDC in the SA3
+-   `vulnerable_rate`: Proportion of children developmentally vulnerable in the SA3
+-   `vulnerable_rate_model`: Proportion of children developmentally vulnerable in the SA3 estimated by the model
+-   `indig_yes`: number of people who identify as Indigenous in the SA3
+-   `indig_no`: number of people who do not identify as Indigenous in the SA3
+-   `indig_not_stated`: number of people who did not state their Indigenous status in the SA3
+-   `indig_rate`: Proportion of people who identify as Indigenous in the SA3
+-   `usual_resident_population`: Number of usual residents in the SA3
 
 # Mapping in NSW
 
 We use the `spdep` package to read the shape file and the `ggplot2` package to create the maps. We use the `ggpubr` package to combine the maps into a single figure.
 
 ## Mapping Vulnerability Levels
+
 Here the map shows the proportion of children developmentally vulnerable in each domain across New South Wales and Greater Sydney. The maps are color-coded by deciles of vulnerability levels, with red indicating higher vulnerability and green indicating lower vulnerability.
 
 ```{r}
@@ -177,7 +176,7 @@ p1 <- dat_map %>%
                     direction = -1,
                     na.value = "grey") + 
   labs(title = "New South Wales",
-       fill = "Proportion (5 Quantiles)") +
+       fill = "Proportion (Deciles)") +
   theme_void() +
   theme(plot.title = element_text(hjust = 0.5,
                                   size = 12))
@@ -210,11 +209,7 @@ ggarrange(plotlist = list(p1, p2),
 
 ```
 
-
 # References {.appendix}
 
 ::: {#refs}
 :::
-
-
-
