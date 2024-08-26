@@ -1,5 +1,5 @@
 # Overview
-This repository contains data and maps visualizing the regional prevalence of early childhood vulnerability across Australia. The maps are generated based on models developed to understand how socioeconomic and remoteness indicators affect childhood vulnerability [@baffour2024utility].
+This repository contains data and maps visualizing the regional prevalence of early childhood vulnerability across Australia. The maps are generated based on models developed to understand how socioeconomic and remoteness indicators affect childhood vulnerability (Baffour, Das, Li, & Richardson, 2024).
 
 # Contents
 - **Input Folder**: Contains the data files used for generating the maps.
@@ -28,5 +28,6 @@ This project is open-source and available under the GPL-3.0 License.
 
 For any inquiries or feedback, please contact Mu Li at [mu.li@anu.edu.au](mu.li@anu.edu.au).
 
-::: {#refs}
-:::
+# References
+
+Baffour, B., Das, S., Li, M., & Richardson, A. (2024). The utility of socioeconomic and remoteness indicators in understanding the geographical variation in the regional prevalence of early childhood vulnerability in Australia. *Child Indicators Research*, 1–37. Springer.
